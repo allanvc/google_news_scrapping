@@ -34,7 +34,7 @@ This work is the result of a question in our great discussion group [**R Dojo**]
 
 I should advice you that a great deal of the basic ideas comes from his own code. I just kept on going and added few things in order the code to work.
 
-First, you should take a look at the Google News (or Google Notícias) website [here](https://news.google.com/?hl=pt-BR&gl=BR&ceid=BR:pt-419) which I reproduce below:
+First, you should take a look at the Google News (or Google Notícias) website [HERE](https://news.google.com/?hl=pt-BR&gl=BR&ceid=BR:pt-419){target="_blank"} which I reproduce below:
 
 ![](./google_news_snap.png)
 
