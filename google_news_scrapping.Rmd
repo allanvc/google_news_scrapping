@@ -40,11 +40,11 @@ First, you should take a look at the Google News (or Google Notícias) website [
 
 ---
 
-You can notice in the right side of the screen snapshot that we used the **dev-tools** in Google Chrome in order to detect all the *html nodes*. You can access this tool by hitting the **F12** key. The html nodes are passed as arguments into the **rvest** functions.
+You may notice in the right side of the snapshot that we used the Google Chrome **dev-tools** in order to detect all the *html nodes*. You can access this tool by hitting the **F12** key. The html nodes are passed as arguments into the **rvest** functions.
 
-Basically, the idea is to extract the communication vehicle, the time elapsed since the news was published, and the main headline.
+Basically, the idea is to extract the communication vehicle (veiculo), the time elapsed since the news was published (tempo), and the main headline (nome).
 
-The code used are presented below: 
+The code are presented below: 
 
 ```{r, message=FALSE}
 # loading the packages:
@@ -84,7 +84,7 @@ tempo_all[1:10] # take a look at the first ten
 
 
 ```{r}
-# extracting the highlights
+# extracting the headlines
 # and using stringr for cleaning
 nome_all <- google %>% html_nodes("article") %>% html_text("span") %>%
   str_split("(?<=[a-z0-9áéó!?])(?=[A-Z])") # also considering portuguese special characters
@@ -94,7 +94,7 @@ nome_all <- sapply(nome_all, function(x) x[1]) # extract only the first elements
 nome_all[1:10] # take a look at the first ten
 ```
 
-In this last case we have used a regular expression (REGEX) to clean the data by separating the actual highlight phrases from the complementary phrases. IN some cases we have a phrase ending in uppercase letters such as "SP" collapsed with other phrase initiating in "A" for example. We have to think of a better way to split these cases, but the current result is quite satisfactory for now. 
+In this last case we used a regular expression (REGEX) to clean the data by separating the actual headline phrases from the complementary phrases. In some cases we have a phrase ending in uppercase letters such as "SP" collapsed with other phrase initiating with another uppercase letter such as "A" for example. We have to think of a better way to split these cases, but the current result is quite satisfactory for now. 
 
 And we have our final data frame:
 
